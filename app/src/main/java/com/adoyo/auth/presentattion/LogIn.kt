@@ -24,6 +24,7 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -77,7 +78,7 @@ fun LogIn() {
                     Text(
                         text = "Email address or username",
                         modifier = Modifier.padding(horizontal = 36.dp),
-                        style = TextStyle(fontWeight = FontWeight.Bold)
+                        style = TextStyle(fontWeight = FontWeight.Medium, fontSize = 20.sp, color = Color.Black.copy(alpha = 0.5f))
                     )
                 })
             Spacer(modifier = Modifier.height(32.dp))
@@ -91,8 +92,8 @@ fun LogIn() {
                 placeholder = {
                     Text(
                         text = "password",
-                        modifier = Modifier.padding(horizontal = 36.dp),
-                        style = TextStyle(fontWeight = FontWeight.Bold)
+                        modifier = Modifier.padding(horizontal = 106.dp),
+                        style = TextStyle(fontWeight = FontWeight.Medium,fontSize = 20.sp, color = Color.Black.copy(alpha = 0.5f))
                     )
                 })
 
