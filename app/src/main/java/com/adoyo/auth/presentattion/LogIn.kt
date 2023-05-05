@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,24 +22,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.adoyo.auth.R
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.adoyo.auth.R
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LogInSignUp() {
+fun LogIn() {
     Box(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp), contentAlignment = Alignment.Center
+            .padding(16.dp)
+            .fillMaxSize(), contentAlignment = Alignment.Center
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(8.dp)
+            verticalArrangement = Arrangement.Center
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -48,7 +50,9 @@ fun LogInSignUp() {
                     contentDescription = stringResource(
                         id = R.string.spotify_logo
                     ),
-                    modifier = Modifier.size(60.dp).alpha(0.9f)
+                    modifier = Modifier
+                        .size(60.dp)
+                        .alpha(0.9f)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
@@ -57,46 +61,24 @@ fun LogInSignUp() {
                 )
             }
             Spacer(modifier = Modifier.height(32.dp))
-            Row(modifier = Modifier.fillMaxWidth()) {
-                Column {
-                    Text(
-                        text = "We play the music.",
-                        style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold)
-                    )
-                    Text(
-                        text = "You enjoy it. Deal?",
-                        style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold)
-                    )
-                }
+            OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+            Spacer(modifier = Modifier.height(32.dp))
+            OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
 
-            }
-            Spacer(modifier = Modifier.height(82.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth(0.9f)) {
-                Text(
-                    text = "SIGN UP",
-                    style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)
-                )
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth(0.9f)) {
+            Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = "LOG IN",
-                    style = TextStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold)
+                    style = TextStyle(fontSize = 30.sp, fontWeight = FontWeight.Bold)
                 )
             }
-            Spacer(modifier = Modifier.height(152.dp))
-
-            Row (modifier = Modifier.fillMaxWidth(0.7f)){
-                Text(text = "By clicking on Sign up, you agree to Spotify's Terms and Conditions of Use.")
-            }
-
         }
     }
 }
 
-@Preview(showSystemUi = true, device = "id:pixel_7_pro")
+@Preview
 @Composable
-fun LogInSignUpPreview() {
-    LogInSignUp()
+fun LonInPreview() {
+    LogIn()
 }
